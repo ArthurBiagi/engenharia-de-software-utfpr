@@ -23,10 +23,16 @@ As atividades estão divididas por pastas nomeadas de acordo com as disciplinas 
 * **`engenharia-de-requisitos/`**
   * Artefatos, elicitação, análise e especificação de requisitos de software (Histórias de Usuário, Casos de Uso, Diagramas).
 
----
+### 🔹 Banco de Dados
 
+* **`banco-de-dados/`**
+    * Modelagem conceitual, lógica e física de dados (Modelos Entidade-Relacionamento).
+    * **Scripts e Exercícios Práticos:** Resolução de listas de exercícios de fixação e desafios em SQL focados em consultas complexas, manipulação de dados (DML) e definição de estruturas (DDL).
+    * *Tecnologia principal utilizada:* SQL (MySQL / PostgreSQL / SQL Server).
+
+ ---
 ## 🛠️ Tecnologias Utilizadas nesses Projetos
-* **Linguagens:** C
+* **Linguagens:** C / C#
 * **Banco de Dados:** SQL 
 * **Ferramentas:** Git, GitHub, VS Code, Visual Studio
 
