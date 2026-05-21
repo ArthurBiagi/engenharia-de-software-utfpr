@@ -17,7 +17,7 @@ O sistema foi projetado sob três perspectivas essenciais para garantir uma cobe
 
 Visualização geral da modelagem estrutural do sistema e organização do projeto:
 
-![Diagrama de Classes e Escopo Geral](./Diagrama de Classes - ProjetoBarb.png)
+**[`Diagrama de Classes - ProjetoBarb.png`](./Diagrama%20de%20Classes%20-%20ProjetoBarb.png)**
 
 ---
 
