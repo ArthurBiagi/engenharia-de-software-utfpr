@@ -23,7 +23,7 @@ Visualização geral da modelagem estrutural do sistema e organização do proje
 
 ## 📁 Artefatos Disponíveis
 
-* 🖼️ **`Diagrama de Classes - ProjetoBarb.png`**: Visão macro da modelagem e da árvore estrutural de diagramas.
-* 💾 **`EntityStore2.asta`**: Arquivo nativo do Astah UML contendo todas as interações e fluxos secundários totalmente navegáveis.
+* 🖼️ **[`Diagrama de Classes - ProjetoBarb.png`](./Diagrama%20de%20Classes%20-%20ProjetoBarb.png)**: Visão macro da modelagem e da árvore estrutural de diagramas.
+* 💾 **[`EntityStore2.asta`](./EntityStore2.asta)**: Arquivo nativo do Astah UML contendo todas as interações e fluxos secundários totalmente navegáveis.
 
 > 💡 *Nota: Projeto acadêmico desenvolvido sob as diretrizes de Engenharia de Software da UTFPR - Campus Cornélio Procópio.*
