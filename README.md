@@ -26,9 +26,15 @@ As atividades estão divididas por pastas nomeadas de acordo com as disciplinas 
   * **Scripts e Exercícios Práticos:** Resolução de listas de exercícios de fixação e desafios em SQL focados em consultas complexas, manipulação de dados (DML) e   definição de estruturas (DDL).
   * *Tecnologia principal utilizada:* SQL (MySQL / PostgreSQL / SQL Server).
 
+### ◆ Programação Orientada a Objetos
+**[`poo/`](./poo)**
+* Resolução de exercícios e projetos focados nos pilares da POO (Abstração, Encapsulamento, Herança e Polimorfismo).
+* Implementação de conceitos essenciais como classes, objetos, atributos, métodos, construtores e tratamento de exceções.
+* *Linguagem principal utilizada:* Java.
+
  ---
 ## 🛠️ Tecnologias Utilizadas nesses Projetos
-* **Linguagens:** C / C#
+* **Linguagens:** C / C# / Java
 * **Banco de Dados:** SQL 
 * **Ferramentas:** Git, GitHub, VS Code, Visual Studio
 
