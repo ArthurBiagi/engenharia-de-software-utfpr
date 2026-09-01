@@ -6,10 +6,9 @@ public class Pessoa {
         int x = 10;
 
         Pessoa p; //declaração
-        p = newe Pessoa();
+        p = new Pessoa(); //instanciação
 
-        Pessoa p2;
-        p2 = new Pessoa();
+        Pessoa p2 = new Pessoa();
         /*int a = 7;
         String b = "El Artu";
 
