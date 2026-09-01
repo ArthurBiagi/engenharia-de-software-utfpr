@@ -9,6 +9,9 @@ public class Pessoa {
         p = new Pessoa(); //instanciação
 
         Pessoa p2 = new Pessoa();
+
+        System.out.println("\n Endereço p"+ p);
+        System.out.println("\n Endereço P2"+ p2);
         /*int a = 7;
         String b = "El Artu";
 
