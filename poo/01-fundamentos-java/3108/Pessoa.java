@@ -3,11 +3,13 @@ public class Pessoa {
     static String nome = "";
 
     public static void main(String arg[]){
-        int a = 7;
+        
+        /*int a = 7;
         String b = "El Artu";
 
         entDados(a, b);
         impDados();
+        */
     }
 
     public static void entDados(int c, String n){
