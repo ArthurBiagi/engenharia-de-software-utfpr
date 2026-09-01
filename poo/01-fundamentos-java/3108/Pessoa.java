@@ -3,7 +3,13 @@ public class Pessoa {
     static String nome = "";
 
     public static void main(String arg[]){
-        
+        int x = 10;
+
+        Pessoa p; //declaração
+        p = newe Pessoa();
+
+        Pessoa p2;
+        p2 = new Pessoa();
         /*int a = 7;
         String b = "El Artu";
 
