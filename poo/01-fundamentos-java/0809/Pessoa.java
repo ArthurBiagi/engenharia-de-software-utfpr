@@ -13,7 +13,7 @@ public class Pessoa{
 
     }
 
-    // Getters 
+    // Getters --> recuperam os valores dos atributos
     public int getCpf(){
         return cpf;
     }
