@@ -25,7 +25,7 @@ public class Pessoa{
     // Setters --> ALTERAM OS VALORES DOS ATRIBUTOS
 
     public void setCpf(int cpf){
-            this.cpf = cpf;
+        this.cpf = cpf;
     }
 
     public void setNome(String nome){
