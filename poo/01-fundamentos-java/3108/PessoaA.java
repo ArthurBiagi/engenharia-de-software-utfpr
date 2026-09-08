@@ -1,14 +1,14 @@
-public class Pessoa {
+public class PessoaA {
     static int cpf = 0;
     static String nome = "";
 
     public static void main(String arg[]){
         int x = 10;
 
-        Pessoa p; //declaração
-        p = new Pessoa(); //instanciação
+        PessoaA p; //declaração
+        p = new PessoaA(); //instanciação
 
-        Pessoa p2 = new Pessoa();
+        PessoaA p2 = new PessoaA();
 
         p.entDados(34, "Emet");
         p2.entDados(124, "Adonai");
