@@ -1,4 +1,4 @@
-public class TstPes{
+public class TstPesB{
 
 	public static void main(String arg[]){//classLoader
 		
