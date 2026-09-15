@@ -3,7 +3,6 @@ public class PessoaA {
     static String nome = "";
 
     public static void main(String arg[]){
-        int x = 10;
 
         PessoaA p; //declaração
         p = new PessoaA(); //instanciação
