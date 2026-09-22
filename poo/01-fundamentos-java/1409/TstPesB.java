@@ -5,6 +5,8 @@ public class TstPesB{
 		Leitura l = new Leitura();
 		PessoaB p1 = new PessoaB();
 		
+		
+		
 		/*
 		String cpf_S = l.entDados("\n CPF...: ");
 		int cpf_I = Integer.parseInt(cpf_S);
