@@ -5,6 +5,7 @@ public class TstHer{
 		Leitura l = new Leitura();
 	
 		Aluno a1 = new Aluno();
+
 		Prof pr1 = new Prof();
 		
 
