@@ -1,0 +1,30 @@
+// Arthur Valsezia dos Santos Biagi RA:  2809320
+
+import java.util.Scanner;
+
+public class VetorInverso {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Variável local que define o tamanho do vetor
+        int tamanho = 5;
+
+        // Cria o vetor com o tamanho da variável local
+        int[] numeros = new int[tamanho];
+
+        // Leitura dos números digitados pelo usuário
+        System.out.println("Digite " + tamanho + " números inteiros:");
+        for (int i = 0; i < tamanho; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = scanner.nextInt();
+        }
+
+        // Apresentação na ordem inversa
+        System.out.println("\nValores na ordem inversa:");
+        for (int i = tamanho - 1; i >= 0; i--) {
+            System.out.print(numeros[i] + " ");
+        }
+
+        scanner.close();
+    }
+}
