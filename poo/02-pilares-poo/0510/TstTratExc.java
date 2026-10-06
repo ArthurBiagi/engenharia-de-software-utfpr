@@ -9,10 +9,6 @@ public class TstTratExc{
 		try{
 			p1.setCpf(Integer.parseInt(l.entDados("\nCPF..: ")));
 		}
-		
-		catch(CpfPeqException cpe){
-			cpe.impErroCpfPeq();
-		}
 
 		catch(NumberFormatException nfe){
 			System.out.println("\nO CPF deve ser um número inteiro");
