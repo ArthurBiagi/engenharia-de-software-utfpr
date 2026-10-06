@@ -12,8 +12,6 @@ public class Prof extends Pessoa {//Tipo Abstrato de Dados
 	
 	public Prof(int ra, String curso){
 		System.out.println("\n Construtor SOBREC1 de Prof -> Filha");
-		this.sal = sal;
-		this.titulo = titulo;
 	}
 	
 
