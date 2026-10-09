@@ -9,14 +9,12 @@ class CalculadoraMenu {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         try {
-            // Entrada dos dois valores via console (lidos como String e convertidos para double)
             System.out.print("Digite o valor de 'a': ");
             double a = Double.parseDouble(reader.readLine());
 
             System.out.print("Digite o valor de 'b': ");
             double b = Double.parseDouble(reader.readLine());
 
-            // Exibição do menu de opções
             System.out.println("\nMenu de Opções:");
             System.out.println("1 - Soma (a+b)");
             System.out.println("2 - multiplicação (a*b)");
@@ -24,10 +22,9 @@ class CalculadoraMenu {
             System.out.println("5 - divisão (a/b)");
             System.out.print("Escolha uma opção: ");
 
-            // Leitura da opção e conversão de tipo para inteiro
+
             int opcao = Integer.parseInt(reader.readLine());
 
-            // Estrutura de seleção switch..case
             switch (opcao) {
                 case 1:
                     System.out.println("A soma de a + b é: " + (a + b));

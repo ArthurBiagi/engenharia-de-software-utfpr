@@ -8,21 +8,17 @@ class VetorInverso {
     public static void main(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        // Variável local que define o tamanho do vetor
         int tam = 5;
 
-        // Cria o vetor com o tamanho da variável local
         int[] numeros = new int[tam];
 
         try {
-            // Leitura dos números digitados pelo usuário
             System.out.println("Digite " + tam + " números inteiros:");
             for (int i = 0; i < tam; i++) {
                 System.out.print("Número " + (i + 1) + ": ");
                 numeros[i] = Integer.parseInt(reader.readLine());
             }
 
-            // Apresentação na ordem inversa
             System.out.println("\nValores na ordem inversa:");
             for (int i = tam - 1; i >= 0; i--) {
                 System.out.print(numeros[i] + " ");
