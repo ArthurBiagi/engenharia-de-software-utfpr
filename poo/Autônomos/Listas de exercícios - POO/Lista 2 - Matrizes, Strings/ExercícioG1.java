@@ -18,10 +18,10 @@ class CalculadoraMenu {
 
             // Exibição do menu de opções
             System.out.println("\nMenu de Opções:");
-            System.out.println("1 - Somar (a+b)");
-            System.out.println("2 - multiplicar (a*b)");
-            System.out.println("3 - subtrair (a-b)");
-            System.out.println("5 - dividir (a/b)");
+            System.out.println("1 - Soma (a+b)");
+            System.out.println("2 - multiplicação (a*b)");
+            System.out.println("3 - subtração (a-b)");
+            System.out.println("5 - divisão (a/b)");
             System.out.print("Escolha uma opção: ");
 
             // Leitura da opção e conversão de tipo para inteiro
@@ -42,7 +42,7 @@ class CalculadoraMenu {
                     if (b != 0) {
                         System.out.println("A divisão de a / b é: " + (a / b));
                     } else {
-                        System.out.println("Erro: Não é possível dividir por zero.");
+                        System.out.println("Erro: Impossível dividir por zero.");
                     }
                     break;
                 default:
@@ -53,7 +53,7 @@ class CalculadoraMenu {
         } catch (IOException e) {
             System.out.println("Erro na leitura de entrada do console: " + e.getMessage());
         } catch (NumberFormatException e) {
-            System.out.println("Erro: Digite apenas valores numéricos válidos.");
+            System.out.println("Erro: Digite apenas números válidos.");
         }
     }
 }
