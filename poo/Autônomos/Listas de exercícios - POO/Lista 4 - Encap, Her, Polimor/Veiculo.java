@@ -11,7 +11,6 @@ public abstract class Veiculo {
     private Motor motor;
     private String dataCadastro;
 
-    // Construtor Default
     public Veiculo() {
         this.placa = "";
         this.marca = "";
@@ -23,22 +22,19 @@ public abstract class Veiculo {
         this.dataCadastro = "";
     }
 
-    // Construtor Sobrecarregado
     public Veiculo(String placa, String marca, String modelo, String cor, int qtdRodas, int velocMax, Motor motor, String dataCadastro) {
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
         this.cor = cor;
         this.qtdRodas = qtdRodas;
-        setVelocMax(velocMax); // Aplica a regra de validação
+        setVelocMax(velocMax); 
         this.motor = motor;
         this.dataCadastro = dataCadastro;
     }
 
-    // Método abstrato para sobrescrita nas classes filhas
     public abstract float calcVel();
 
-    // Getters e Setters
     public String getPlaca() {
         return placa;
     }
@@ -83,7 +79,6 @@ public abstract class Veiculo {
         return velocMax;
     }
 
-    // Regra de validação da velocidade máxima segundo os subsídios
     public void setVelocMax(int velocMax) {
         if (velocMax < 10 || velocMax > 250) {
             System.out.println("\nA velocidade está fora dos limites brasileiros");
