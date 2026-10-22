@@ -2,7 +2,6 @@ public class SecaoEsportes extends Departamento implements Relatorio {
     private int quantidadeBolas;
     private String categoriaModalidade;
 
-    // Construtor Default
     public SecaoEsportes() {
     }
 
@@ -22,20 +21,27 @@ public class SecaoEsportes extends Departamento implements Relatorio {
         this.categoriaModalidade = categoriaModalidade;
     }
 
-    // Sobrescrita
+    //Sobrescrita
     public double calcularMeta() {
         return 5000.00 * 1.10;
     }
 
-    // Sobrecarga
+    //Sobrecarga
     public double calcularMeta(double fatorMultiplicador) {
         return 5000.00 * fatorMultiplicador;
     }
 
-    // Sobrescrita
+    //Sobrescrita
+    public double calcularICMS(double valorVendas) {
+        return valorVendas * 0.12; // 12% ICMS
+    }
+
+    //Sobrescrita
     public String gerarRelatorio() {
-        return "Setor Esportes [ID: " + getId() + ", Nome: " + getNome() +
-                ", Modalidade: " + categoriaModalidade + ", Bolas em Estoque: " + quantidadeBolas +
-                ", Meta Calculada: R$ " + calcularMeta() + "]";
+        double meta = calcularMeta();
+        double icms = calcularICMS(meta);
+        return "Setor Esportes [ID: " + getId() + ", Nome: " + getNome() + 
+               ", Modalidade: " + categoriaModalidade + ", Bolas: " + quantidadeBolas + 
+               ", Meta: R$ " + meta + ", ICMS Estimado (12%): R$ " + icms + "]";
     }
 }

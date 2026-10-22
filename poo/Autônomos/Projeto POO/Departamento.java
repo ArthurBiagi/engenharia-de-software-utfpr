@@ -2,7 +2,6 @@ public abstract class Departamento {
     private int id;
     private String nome;
 
-    // Construtor Default
     public Departamento() {
     }
 
@@ -23,4 +22,7 @@ public abstract class Departamento {
     }
 
     public abstract double calcularMeta();
+
+    // Método abstrato para o cálculo de imposto
+    public abstract double calcularICMS(double valorVendas);
 }
