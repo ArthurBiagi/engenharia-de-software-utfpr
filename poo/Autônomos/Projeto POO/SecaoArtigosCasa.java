@@ -22,20 +22,20 @@ public class SecaoArtigosCasa extends Departamento implements Relatorio {
         this.tipoMaterial = tipoMaterial;
     }
 
-    //Sobrescrita
+    // Sobrescrita
     public double calcularMeta() {
         return 8000.00 * 1.05;
     }
 
-    //Sobrecarga
+    // Sobrecarga
     public double calcularMeta(double fatorMultiplicador) {
         return 8000.00 * fatorMultiplicador;
     }
 
-    //Sobrescrita
+    // Sobrescrita
     public String gerarRelatorio() {
-        return "Setor Artigos Casa [ID: " + getId() + ", Nome: " + getNome() + 
-               ", Material: " + tipoMaterial + ", Garantia Estendida: " + (possuiGarantiaEstendida ? "Sim" : "Não") + 
-               ", Meta Calculada: R$ " + calcularMeta() + "]";
+        return "Setor Artigos Casa [ID: " + getId() + ", Nome: " + getNome() +
+                ", Material: " + tipoMaterial + ", Garantia Estendida: " + (possuiGarantiaEstendida ? "Sim" : "Não") +
+                ", Meta Calculada: R$ " + calcularMeta() + "]";
     }
 }

@@ -22,20 +22,20 @@ public class SecaoEletronicos extends Departamento implements Relatorio {
         this.mesesGarantia = mesesGarantia;
     }
 
-    //Sobrescrita
+    // Sobrescrita
     public double calcularMeta() {
         return 12000.00 * 1.20;
     }
 
-    //Sobrecarga
+    // Sobrecarga
     public double calcularMeta(double fatorMultiplicador) {
         return 12000.00 * fatorMultiplicador;
     }
 
-    //Sobrescrita
+    // Sobrescrita
     public String gerarRelatorio() {
-        return "Setor Eletrônicos [ID: " + getId() + ", Nome: " + getNome() + 
-               ", Voltagem: " + voltagem + "V, Garantia: " + mesesGarantia + " meses" + 
-               ", Meta Calculada: R$ " + calcularMeta() + "]";
+        return "Setor Eletrônicos [ID: " + getId() + ", Nome: " + getNome() +
+                ", Voltagem: " + voltagem + "V, Garantia: " + mesesGarantia + " meses" +
+                ", Meta Calculada: R$ " + calcularMeta() + "]";
     }
 }

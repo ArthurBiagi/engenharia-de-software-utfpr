@@ -22,20 +22,20 @@ public class SecaoEsportes extends Departamento implements Relatorio {
         this.categoriaModalidade = categoriaModalidade;
     }
 
-    //Sobrescrita
+    // Sobrescrita
     public double calcularMeta() {
         return 5000.00 * 1.10;
     }
 
-    //Sobrecarga
+    // Sobrecarga
     public double calcularMeta(double fatorMultiplicador) {
         return 5000.00 * fatorMultiplicador;
     }
 
-    //Sobrescrita
+    // Sobrescrita
     public String gerarRelatorio() {
-        return "Setor Esportes [ID: " + getId() + ", Nome: " + getNome() + 
-               ", Modalidade: " + categoriaModalidade + ", Bolas em Estoque: " + quantidadeBolas + 
-               ", Meta Calculada: R$ " + calcularMeta() + "]";
+        return "Setor Esportes [ID: " + getId() + ", Nome: " + getNome() +
+                ", Modalidade: " + categoriaModalidade + ", Bolas em Estoque: " + quantidadeBolas +
+                ", Meta Calculada: R$ " + calcularMeta() + "]";
     }
 }
