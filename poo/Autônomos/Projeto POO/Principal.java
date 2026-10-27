@@ -1,46 +1,39 @@
-//Arthur Valsezia dos Santos Biagi RA: 2809320
-import java.util.Scanner;
+// Autor: Arthur Valsezia dos Santos Biagi - RA: 2809320
 
 public class Principal {
+
     public static void main(String[] args) {
         ControleLoja controle = new ControleLoja();
-        Scanner scanner = new Scanner(System.in);
-        int opcao = 0;
+        Leitura leitura = new Leitura();
 
+        controle.cadastrarDadosLoja();
+
+        int opcao = 0;
         do {
-            System.out.println("=== SISTEMA DE GESTÃO - LOJA DE DEPARTAMENTOS ===");
-            System.out.println("1 - Cadastrar/Atualizar Dados da Loja");
-            System.out.println("2 - Cadastrar Novo Departamento");
-            System.out.println("3 - Exibir Relatório Geral");
-            System.out.println("4 - Sair");
-            System.out.print("Escolha uma opção: ");
+            System.out.println("\n=== MENU PRINCIPAL ===");
+            System.out.println("1 - Cadastrar Departamento");
+            System.out.println("2 - Exibir Relatorios");
+            System.out.println("3 - Sair");
 
             try {
-                opcao = Integer.parseInt(scanner.nextLine());
+                opcao = Integer.parseInt(leitura.entDados("Escolha uma opcao: "));
 
                 switch (opcao) {
                     case 1:
-                        controle.cadastrarDadosLoja();
-                        break;
-                    case 2:
                         controle.cadastrarDepartamento();
                         break;
-                    case 3:
+                    case 2:
                         controle.exibirRelatorios();
                         break;
-                    case 4:
-                        System.out.println("Saindo do sistema... Até logo!");
+                    case 3:
+                        System.out.println("Saindo do sistema...");
                         break;
                     default:
-                        System.out.println("Opção inválida! Tente novamente.\n");
-                        break;
+                        System.out.println("Opcao invalida!");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("[ERRO]: Por favor, digite apenas números para selecionar a opção do menu.\n");
+                System.out.println("Erro: Digite apenas numeros inteiros para as opcoes do menu!");
             }
-
-        } while (opcao != 4);
-
-        scanner.close();
+        } while (opcao != 3);
     }
 }

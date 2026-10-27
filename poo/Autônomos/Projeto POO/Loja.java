@@ -1,16 +1,34 @@
-//Arthur Valsezia dos Santos Biagi RA: 2809320
+// Autor: Arthur Valsezia dos Santos Biagi - RA: 2809320
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Loja {
     private String nome;
     private String cnpj;
+    private int quantidadeDepartamentos;
     private Endereco endereco;
     private Contato contato;
-    private Departamento[] departamentos;
-    private int quantidadeDepartamentos;
+    private List<Departamento> departamentos;
 
-    // Construtor Default
+    //Sobrecarga
     public Loja() {
-        this.departamentos = new Departamento[10];
+        this.nome = "";
+        this.cnpj = "";
         this.quantidadeDepartamentos = 0;
+        this.endereco = new Endereco();
+        this.contato = new Contato();
+        this.departamentos = new ArrayList<>();
+    }
+
+    //Sobrecarga
+    public Loja(String nome, String cnpj, Endereco endereco, Contato contato) {
+        this.nome = nome;
+        this.cnpj = cnpj;
+        this.quantidadeDepartamentos = 0;
+        this.endereco = endereco;
+        this.contato = contato;
+        this.departamentos = new ArrayList<>();
     }
 
     public String getNome() {
@@ -29,6 +47,14 @@ public class Loja {
         this.cnpj = cnpj;
     }
 
+    public int getQuantidadeDepartamentos() {
+        return quantidadeDepartamentos;
+    }
+
+    public void setQuantidadeDepartamentos(int quantidadeDepartamentos) {
+        this.quantidadeDepartamentos = quantidadeDepartamentos;
+    }
+
     public Endereco getEndereco() {
         return endereco;
     }
@@ -45,27 +71,25 @@ public class Loja {
         this.contato = contato;
     }
 
-    public Departamento[] getDepartamentos() {
+    public List<Departamento> getDepartamentos() {
         return departamentos;
     }
 
-    public void setDepartamentos(Departamento[] departamentos) {
-        this.departamentos = departamentos;
+    public void adicionarDepartamento(Departamento dep) {
+        this.departamentos.add(dep);
+        this.quantidadeDepartamentos = this.departamentos.size();
     }
 
-    public int getQuantidadeDepartamentos() {
-        return quantidadeDepartamentos;
-    }
-
-    public void setQuantidadeDepartamentos(int quantidadeDepartamentos) {
-        this.quantidadeDepartamentos = quantidadeDepartamentos;
-    }
-
-    public void adicionarDepartamento(Departamento dep) throws CapacidadeExcedidaException {
-        if (quantidadeDepartamentos >= departamentos.length) {
-            throw new CapacidadeExcedidaException("Capacidade máxima de departamentos na loja foi atingida!");
+    public void listarDepartamentos() {
+        if (departamentos.isEmpty()) {
+            System.out.println("Nenhum departamento cadastrado nesta loja.");
+        } else {
+            for (Departamento dep : departamentos) {
+                if (dep instanceof Relatorio) {
+                    System.out.println(((Relatorio) dep).gerarRelatorio());
+                    System.out.println("----------------------------------");
+                }
+            }
         }
-        this.departamentos[quantidadeDepartamentos] = dep;
-        this.quantidadeDepartamentos++;
     }
 }

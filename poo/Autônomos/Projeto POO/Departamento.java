@@ -1,11 +1,16 @@
-//Arthur Valsezia dos Santos Biagi RA: 2809320
+// Autor: Arthur Valsezia dos Santos Biagi - RA: 2809320
+
 public abstract class Departamento {
     private int id;
     private String nome;
 
+    //Sobrecarga
     public Departamento() {
+        this.id = 0;
+        this.nome = "";
     }
 
+    //Sobrecarga
     public Departamento(int id, String nome) {
         this.id = id;
         this.nome = nome;

@@ -1,11 +1,17 @@
-//Arthur Valsezia dos Santos Biagi RA: 2809320
+// Autor: Arthur Valsezia dos Santos Biagi - RA: 2809320
+
 public class SecaoEsportes extends Departamento implements Relatorio {
     private int quantidadeBolas;
     private String categoriaModalidade;
 
+    //Sobrecarga
     public SecaoEsportes() {
+        super();
+        this.quantidadeBolas = 0;
+        this.categoriaModalidade = "";
     }
 
+    //Sobrecarga
     public SecaoEsportes(int id, String nome, int quantidadeBolas, String categoriaModalidade) {
         super(id, nome);
         this.quantidadeBolas = quantidadeBolas;
@@ -28,6 +34,7 @@ public class SecaoEsportes extends Departamento implements Relatorio {
         this.categoriaModalidade = categoriaModalidade;
     }
 
+    //Sobrescrita
     @Override
     public String gerarRelatorio() {
         return "--- SECAO ESPORTES ---\n" +

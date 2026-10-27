@@ -1,168 +1,96 @@
-//Arthur Valsezia dos Santos Biagi RA: 2809320
-import java.util.Scanner;
+// Autor: Arthur Valsezia dos Santos Biagi - RA: 2809320
 
 public class ControleLoja {
     private Loja loja;
-    private Scanner scanner;
+    private Leitura leitura;
 
+    //Sobrecarga
     public ControleLoja() {
         this.loja = new Loja();
-        this.loja.setEndereco(new Endereco());
-        this.loja.setContato(new Contato());
-        this.scanner = new Scanner(System.in);
+        this.leitura = new Leitura();
     }
 
     public void cadastrarDadosLoja() {
-        try {
-            System.out.println("--- CADASTRO DA LOJA ---");
-            System.out.print("Nome da Loja: ");
-            loja.setNome(scanner.nextLine());
+        System.out.println("\n=== CADASTRO DA LOJA ===");
+        loja.setNome(leitura.entDados("Nome da Loja: "));
+        loja.setCnpj(leitura.entDados("CNPJ: "));
 
-            System.out.print("CNPJ: ");
-            loja.setCnpj(scanner.nextLine());
+        System.out.println("\n--- Endereco ---");
+        loja.getEndereco().setRua(leitura.entDados("Rua: ")); //Reflexividade
+        loja.getEndereco().setNumero(Integer.parseInt(leitura.entDados("Numero: "))); //Reflexividade
+        loja.getEndereco().setBairro(leitura.entDados("Bairro: ")); //Reflexividade
+        loja.getEndereco().setCidade(leitura.entDados("Cidade: ")); //Reflexividade
 
-            System.out.print("Rua: ");
-            loja.getEndereco().setRua(scanner.nextLine()); //Reflexividade
-
-            System.out.print("Número: ");
-            int num = Integer.parseInt(scanner.nextLine());
-            if (num <= 0) {
-                throw new ValorInvalidoException("O número do endereço deve ser maior que zero!");
-            }
-            loja.getEndereco().setNumero(num); //Reflexividade
-
-            System.out.print("Bairro: ");
-            loja.getEndereco().setBairro(scanner.nextLine()); //Reflexividade
-
-            System.out.print("Cidade: ");
-            loja.getEndereco().setCidade(scanner.nextLine()); //Reflexividade
-
-            System.out.print("E-mail de Contato: ");
-            loja.getContato().setEmail(scanner.nextLine()); //Reflexividade
-
-            System.out.print("Telefone de Contato: ");
-            loja.getContato().setTelefone(scanner.nextLine()); //Reflexividade
-
-            System.out.println("-> Dados da loja cadastrados com sucesso!\n");
-
-        } catch (ValorInvalidoException e) {
-            System.out.println("[ERRO DE VALIDAÇÃO]: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.out.println("[ERRO DE FORMATO]: Digite apenas números inteiros para o número do endereço.");
-        }
+        System.out.println("\n--- Contato ---");
+        loja.getContato().setEmail(leitura.entDados("E-mail: ")); //Reflexividade
+        loja.getContato().setTelefone(leitura.entDados("Telefone: ")); //Reflexividade
     }
 
     public void cadastrarDepartamento() {
+        System.out.println("\n=== CADASTRAR DEPARTAMENTO ===");
+        System.out.println("1 - Secao de Esportes");
+        System.out.println("2 - Secao de Artigos de Casa");
+        System.out.println("3 - Secao de Eletronicos");
+
         try {
-            System.out.println("--- CADASTRO DE DEPARTAMENTO ---");
-            System.out.println("1 - Seção de Esportes");
-            System.out.println("2 - Seção de Artigos para Casa");
-            System.out.println("3 - Seção de Eletrônicos");
-            System.out.print("Escolha o tipo de departamento: ");
-            int tipo = Integer.parseInt(scanner.nextLine());
+            int opcao = Integer.parseInt(leitura.entDados("Escolha a secao: "));
 
-            if (tipo < 1 || tipo > 3) {
-                throw new ValorInvalidoException("Opção de departamento inválida!");
+            if (loja.getQuantidadeDepartamentos() >= 10) {
+                throw new CapacidadeExcedidaException("Capacidade maxima de departamentos atingida (limite: 10)!");
             }
 
-            System.out.print("ID do Departamento: ");
-            int id = Integer.parseInt(scanner.nextLine());
+            int id = Integer.parseInt(leitura.entDados("ID do Departamento: "));
             if (id <= 0) {
-                throw new ValorInvalidoException("O ID do departamento deve ser maior que zero!");
+                throw new ValorInvalidoException("O ID do departamento deve ser um numero maior que zero!");
             }
 
-            System.out.print("Nome do Departamento: ");
-            String nome = scanner.nextLine();
+            String nome = leitura.entDados("Nome do Departamento: ");
 
-            switch (tipo) {
+            switch (opcao) {
                 case 1:
-                    SecaoEsportes esportes = new SecaoEsportes();
-                    esportes.setId(id);
-                    esportes.setNome(nome);
-
-                    System.out.print("Quantidade de Bolas em Estoque: ");
-                    int bolas = Integer.parseInt(scanner.nextLine());
-                    if (bolas < 0) {
-                        throw new ValorInvalidoException("A quantidade de bolas não pode ser negativa!");
-                    }
-                    esportes.setQuantidadeBolas(bolas);
-
-                    System.out.print("Categoria/Modalidade: ");
-                    esportes.setCategoriaModalidade(scanner.nextLine());
-
+                    int qtdBolas = Integer.parseInt(leitura.entDados("Quantidade de Bolas: "));
+                    String categoria = leitura.entDados("Categoria Modalidade: ");
+                    SecaoEsportes esportes = new SecaoEsportes(id, nome, qtdBolas, categoria);
                     loja.adicionarDepartamento(esportes);
+                    System.out.println("Secao de Esportes cadastrada com sucesso!");
                     break;
 
                 case 2:
-                    SecaoArtigosCasa casa = new SecaoArtigosCasa();
-                    casa.setId(id);
-                    casa.setNome(nome);
-
-                    System.out.print("Tipo de Material (ex: Plástico, Inox, Madeira): ");
-                    casa.setTipoMaterial(scanner.nextLine());
-
-                    System.out.print("Possui Garantia Estendida? (S/N): ");
-                    String resp = scanner.nextLine();
-                    casa.setPossuiGarantiaEstendida(resp.equalsIgnoreCase("S"));
-
+                    boolean garantia = Boolean.parseBoolean(leitura.entDados("Possui Garantia Estendida? (true/false): "));
+                    String material = leitura.entDados("Tipo de Material: ");
+                    SecaoArtigosCasa casa = new SecaoArtigosCasa(id, nome, garantia, material);
                     loja.adicionarDepartamento(casa);
+                    System.out.println("Secao de Artigos de Casa cadastrada com sucesso!");
                     break;
 
                 case 3:
-                    SecaoEletronicos eletronicos = new SecaoEletronicos();
-                    eletronicos.setId(id);
-                    eletronicos.setNome(nome);
-
-                    System.out.print("Voltagem (110 / 220): ");
-                    int voltagem = Integer.parseInt(scanner.nextLine());
-                    eletronicos.setVoltagem(voltagem);
-
-                    System.out.print("Meses de Garantia: ");
-                    int garantia = Integer.parseInt(scanner.nextLine());
-                    if (garantia < 0) {
-                        throw new ValorInvalidoException("A garantia não pode ser negativa!");
-                    }
-                    eletronicos.setMesesGarantia(garantia);
-
+                    int voltagem = Integer.parseInt(leitura.entDados("Voltagem (110/220): "));
+                    int mesesGarantia = Integer.parseInt(leitura.entDados("Meses de Garantia: "));
+                    SecaoEletronicos eletronicos = new SecaoEletronicos(id, nome, voltagem, mesesGarantia);
                     loja.adicionarDepartamento(eletronicos);
+                    System.out.println("Secao de Eletronicos cadastrada com sucesso!");
                     break;
+
+                default:
+                    System.out.println("Opcao de secao invalida!");
             }
 
-            System.out.println("-> Departamento cadastrado com sucesso!\n");
-
         } catch (ValorInvalidoException e) {
-            System.out.println("[ERRO DE VALIDAÇÃO]: " + e.getMessage());
+            System.out.println("Erro de Valor: " + e.getMessage());
         } catch (CapacidadeExcedidaException e) {
-            System.out.println("[ERRO DE CAPACIDADE]: " + e.getMessage());
+            System.out.println("Erro de Capacidade: " + e.getMessage());
         } catch (NumberFormatException e) {
-            System.out.println("[ERRO DE FORMATO]: Valor numérico digitado é inválido.");
+            System.out.println("Erro de Formato: Digite um numero valido!");
         }
     }
 
     public void exibirRelatorios() {
-        System.out.println("\n========== RELATÓRIO DA LOJA DE DEPARTAMENTOS ==========");
-        System.out.println("Loja: " + loja.getNome() + " | CNPJ: " + loja.getCnpj());
-        
-        System.out.println("Endereço: " + loja.getEndereco().getRua() + ", " + 
-                           loja.getEndereco().getNumero() + " - " + 
-                           loja.getEndereco().getBairro() + " (" + 
-                           loja.getEndereco().getCidade() + ")"); //Reflexividade
-                           
-        System.out.println("Contato: " + loja.getContato().getEmail() + " | Tel: " + 
-                           loja.getContato().getTelefone()); //Reflexividade
-        System.out.println("-------------------------------------------------------");
+        System.out.println("\n==================================");
+        System.out.println("LOJA: " + loja.getNome() + " | CNPJ: " + loja.getCnpj());
+        System.out.println("ENDERECO: " + loja.getEndereco().getRua() + ", " + loja.getEndereco().getNumero() + " - " + loja.getEndereco().getBairro() + " (" + loja.getEndereco().getCidade() + ")"); //Reflexividade
+        System.out.println("CONTATO: " + loja.getContato().getEmail() + " | TEL: " + loja.getContato().getTelefone()); //Reflexividade
+        System.out.println("==================================");
 
-        if (loja.getQuantidadeDepartamentos() == 0) {
-            System.out.println("Nenhum departamento cadastrado até o momento.");
-        } else {
-            for (int i = 0; i < loja.getQuantidadeDepartamentos(); i++) {
-                Departamento dep = loja.getDepartamentos()[i];
-                if (dep instanceof Relatorio) {
-                    Relatorio rel = (Relatorio) dep;
-                    System.out.println(rel.gerarRelatorio());
-                }
-            }
-        }
-        System.out.println("=======================================================\n");
+        loja.listarDepartamentos();
     }
 }

@@ -1,11 +1,17 @@
-//Arthur Valsezia dos Santos Biagi RA: 2809320
+// Autor: Arthur Valsezia dos Santos Biagi - RA: 2809320
+
 public class SecaoArtigosCasa extends Departamento implements Relatorio {
     private boolean possuiGarantiaEstendida;
     private String tipoMaterial;
 
+    //Sobrecarga
     public SecaoArtigosCasa() {
+        super();
+        this.possuiGarantiaEstendida = false;
+        this.tipoMaterial = "";
     }
 
+    //Sobrecarga
     public SecaoArtigosCasa(int id, String nome, boolean possuiGarantiaEstendida, String tipoMaterial) {
         super(id, nome);
         this.possuiGarantiaEstendida = possuiGarantiaEstendida;
@@ -28,6 +34,7 @@ public class SecaoArtigosCasa extends Departamento implements Relatorio {
         this.tipoMaterial = tipoMaterial;
     }
 
+    //Sobrescrita
     @Override
     public String gerarRelatorio() {
         return "--- SECAO ARTIGOS CASA ---\n" +

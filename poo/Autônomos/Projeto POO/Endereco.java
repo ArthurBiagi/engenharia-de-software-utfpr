@@ -1,12 +1,25 @@
-//Arthur Valsezia dos Santos Biagi RA: 2809320
+// Autor: Arthur Valsezia dos Santos Biagi - RA: 2809320
+
 public class Endereco {
     private String rua;
     private int numero;
     private String bairro;
     private String cidade;
 
-    // Construtor Default
+    //Sobrecarga
     public Endereco() {
+        this.rua = "";
+        this.numero = 0;
+        this.bairro = "";
+        this.cidade = "";
+    }
+
+    //Sobrecarga
+    public Endereco(String rua, int numero, String bairro, String cidade) {
+        this.rua = rua;
+        this.numero = numero;
+        this.bairro = bairro;
+        this.cidade = cidade;
     }
 
     public String getRua() {

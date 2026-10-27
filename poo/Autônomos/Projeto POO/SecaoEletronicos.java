@@ -1,11 +1,17 @@
-//Arthur Valsezia dos Santos Biagi RA: 2809320
+// Autor: Arthur Valsezia dos Santos Biagi - RA: 2809320
+
 public class SecaoEletronicos extends Departamento implements Relatorio {
     private int voltagem;
     private int mesesGarantia;
 
+    //Sobrecarga
     public SecaoEletronicos() {
+        super();
+        this.voltagem = 0;
+        this.mesesGarantia = 0;
     }
 
+    //Sobrecarga
     public SecaoEletronicos(int id, String nome, int voltagem, int mesesGarantia) {
         super(id, nome);
         this.voltagem = voltagem;
@@ -28,6 +34,7 @@ public class SecaoEletronicos extends Departamento implements Relatorio {
         this.mesesGarantia = mesesGarantia;
     }
 
+    //Sobrescrita
     @Override
     public String gerarRelatorio() {
         return "--- SECAO ELETRONICOS ---\n" +
