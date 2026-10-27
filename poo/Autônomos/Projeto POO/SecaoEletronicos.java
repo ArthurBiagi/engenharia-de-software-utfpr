@@ -5,6 +5,12 @@ public class SecaoEletronicos extends Departamento implements Relatorio {
     public SecaoEletronicos() {
     }
 
+    public SecaoEletronicos(int id, String nome, int voltagem, int mesesGarantia) {
+        super(id, nome);
+        this.voltagem = voltagem;
+        this.mesesGarantia = mesesGarantia;
+    }
+
     public int getVoltagem() {
         return voltagem;
     }
@@ -21,27 +27,12 @@ public class SecaoEletronicos extends Departamento implements Relatorio {
         this.mesesGarantia = mesesGarantia;
     }
 
-    //Sobrescrita
-    public double calcularMeta() {
-        return 12000.00 * 1.20;
-    }
-
-    //Sobrecarga
-    public double calcularMeta(double fatorMultiplicador) {
-        return 12000.00 * fatorMultiplicador;
-    }
-
-    //Sobrescrita
-    public double calcularICMS(double valorVendas) {
-        return valorVendas * 0.18; // 18% ICMS
-    }
-
-    //Sobrescrita
+    @Override
     public String gerarRelatorio() {
-        double meta = calcularMeta();
-        double icms = calcularICMS(meta);
-        return "Setor Eletrônicos [ID: " + getId() + ", Nome: " + getNome() + 
-               ", Voltagem: " + voltagem + "V, Garantia: " + mesesGarantia + " meses" + 
-               ", Meta: R$ " + meta + ", ICMS Estimado (18%): R$ " + icms + "]";
+        return "--- SECAO ELETRONICOS ---\n" +
+               "ID: " + getId() + "\n" +
+               "Nome: " + getNome() + "\n" +
+               "Voltagem: " + voltagem + "V\n" +
+               "Garantia: " + mesesGarantia + " meses";
     }
 }

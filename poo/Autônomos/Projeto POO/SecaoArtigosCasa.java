@@ -5,6 +5,12 @@ public class SecaoArtigosCasa extends Departamento implements Relatorio {
     public SecaoArtigosCasa() {
     }
 
+    public SecaoArtigosCasa(int id, String nome, boolean possuiGarantiaEstendida, String tipoMaterial) {
+        super(id, nome);
+        this.possuiGarantiaEstendida = possuiGarantiaEstendida;
+        this.tipoMaterial = tipoMaterial;
+    }
+
     public boolean isPossuiGarantiaEstendida() {
         return possuiGarantiaEstendida;
     }
@@ -21,27 +27,12 @@ public class SecaoArtigosCasa extends Departamento implements Relatorio {
         this.tipoMaterial = tipoMaterial;
     }
 
-    //Sobrescrita
-    public double calcularMeta() {
-        return 8000.00 * 1.05;
-    }
-
-    //Sobrecarga
-    public double calcularMeta(double fatorMultiplicador) {
-        return 8000.00 * fatorMultiplicador;
-    }
-
-    //Sobrescrita
-    public double calcularICMS(double valorVendas) {
-        return valorVendas * 0.07; // 7% ICMS
-    }
-
-    //Sobrescrita
+    @Override
     public String gerarRelatorio() {
-        double meta = calcularMeta();
-        double icms = calcularICMS(meta);
-        return "Setor Artigos Casa [ID: " + getId() + ", Nome: " + getNome() + 
-               ", Material: " + tipoMaterial + ", Garantia Estendida: " + (possuiGarantiaEstendida ? "Sim" : "Não") + 
-               ", Meta: R$ " + meta + ", ICMS Estimado (7%): R$ " + icms + "]";
+        return "--- SECAO ARTIGOS CASA ---\n" +
+               "ID: " + getId() + "\n" +
+               "Nome: " + getNome() + "\n" +
+               "Garantia Estendida: " + (possuiGarantiaEstendida ? "Sim" : "Nao") + "\n" +
+               "Tipo de Material: " + tipoMaterial;
     }
 }

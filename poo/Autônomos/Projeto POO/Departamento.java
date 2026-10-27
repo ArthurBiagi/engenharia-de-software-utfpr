@@ -5,6 +5,11 @@ public abstract class Departamento {
     public Departamento() {
     }
 
+    public Departamento(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public int getId() {
         return id;
     }
@@ -20,9 +25,4 @@ public abstract class Departamento {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public abstract double calcularMeta();
-
-    // Método abstrato para o cálculo de imposto
-    public abstract double calcularICMS(double valorVendas);
 }
