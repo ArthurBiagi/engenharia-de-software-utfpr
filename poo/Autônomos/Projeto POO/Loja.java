@@ -1,3 +1,4 @@
+//Arthur Valsezia dos Santos Biagi RA: 2809320
 public class Loja {
     private String nome;
     private String cnpj;

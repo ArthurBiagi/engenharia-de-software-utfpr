@@ -1,3 +1,4 @@
+//Arthur Valsezia dos Santos Biagi RA: 2809320
 import java.util.Scanner;
 
 public class ControleLoja {

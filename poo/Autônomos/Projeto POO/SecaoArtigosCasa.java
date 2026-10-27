@@ -1,3 +1,4 @@
+//Arthur Valsezia dos Santos Biagi RA: 2809320
 public class SecaoArtigosCasa extends Departamento implements Relatorio {
     private boolean possuiGarantiaEstendida;
     private String tipoMaterial;

@@ -1,3 +1,4 @@
+//Arthur Valsezia dos Santos Biagi RA: 2809320
 public class Endereco {
     private String rua;
     private int numero;
